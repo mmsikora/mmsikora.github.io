@@ -1,1 +1,55 @@
-Hello, world
+<!DOCTYPE html>
+<html ng-app="board">
+  <head>
+  <!-- <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>--!>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//material/material.css"/>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+  </head>
+  <body ng-controller="BoardController as board">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8"><h1>{{board.bio.name}}</h1><h3>{{board.bio.school}}</h3></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4"><h4>{{board.bio.major}}<h4></div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <section ng-controller="PanelController as panel">
+          <ul class= "nav nav-pills">
+            <li ng-class="{ active: panel.isSelected(1) }">
+              <a href ng-click="panel.selectTab(1)">Bio</a>
+            </li>
+            <li ng-class="{ active: panel.isSelected(2) }">
+              <a href ng-click="panel.selectTab(2)">Code</a>
+            </li>
+            <li ng-class="{ active: panel.isSelected(3) }">
+              <a href ng-click="panel.selectTab(3)">Research</a>
+            </li>
+            <li ng-class="{ active: panel.isSelected(4) }">
+              <a href ng-click="panel.selectTab(4)">Links</a>
+            </li>
+          </ul>
+       <about-me class="panel" ng-show="panel.isSelected(1)">
+       </about-me>
+       <code-listing class="panel" ng-show="panel.isSelected(2)">
+       </code-listing>
+      <current-research class="panel" ng-show="panel.isSelected(3)">
+      </current-research>
+      <div class="panel" ng-show="panel.isSelected(4)">
+        <br><p>Points of interest and useful links:</p>
+        <ul>
+          <li ng-repeat="link in board.hlinks.linktab">
+            <a href="{{link.address}}">{{link.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+  </body>
+</html>
