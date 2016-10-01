@@ -39,8 +39,9 @@
     name: "Mark Sikora",
     school: "Indiana State University",
     major: "Computer Science",
-    class: "senior",
-    age: 29
+    class: "graduated",
+    age: 30,
+    GPA: 3.95
   };
   var hyperlinks = {
     cs17004 : [
